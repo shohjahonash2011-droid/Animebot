@@ -48,8 +48,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ADD
 # ==========================
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_user.id != ADMIN_IDS:
-        return
+    if update.effective_user.id not in ADMIN_IDS:
+    return
 
     if len(context.args) != 1:
         await update.message.reply_text("Foydalanish:\n/add A001")
@@ -73,8 +73,8 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def save_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
-    if update.effective_user.id not in ADMIN_IDS:
-    return
+    if user_id not in ADMIN_IDS:
+        return
     file_id = None
 
     # Oddiy video
@@ -110,7 +110,7 @@ async def save_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
-    if user_id != ADMIN_IDS:
+    if user_id not in ADMIN_IDS:
         return
 
     if user_id not in waiting_for_video:
