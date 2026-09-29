@@ -49,11 +49,11 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ==========================
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id not in ADMIN_IDS:
-    return
+        return
 
     if len(context.args) != 1:
         await update.message.reply_text("Foydalanish:\n/add A001")
-        return
+           return
 
     code = context.args[0].upper()
 
