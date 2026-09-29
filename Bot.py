@@ -110,7 +110,7 @@ async def save_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
-    if user_id != ADMIN_ID:
+    if user_id != ADMIN_IDS:
         return
 
     if user_id not in waiting_for_video:
