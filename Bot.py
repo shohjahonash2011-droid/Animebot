@@ -164,6 +164,3 @@ app.add_handler(
         search
     )
 )
-
-print("✅ Bot ishga tushdi...")
-app.run_polling()
