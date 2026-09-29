@@ -73,12 +73,8 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def save_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
 
-    if user_id != ADMIN_ID:
-        return
-
-    if user_id not in waiting_for_video:
-        return
-
+    if update.effective_user.id not in ADMIN_IDS:
+    return
     file_id = None
 
     # Oddiy video
